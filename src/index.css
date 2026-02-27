@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  /* Aimpay brand red palette — primary: #F73B20, hover: #D93A1A */
+  --color-orange-50: #FFF1EE;
+  --color-orange-100: #FFD9D2;
+  --color-orange-200: #FFADA0;
+  --color-orange-300: #FF7A64;
+  --color-orange-400: #F75A40;
+  --color-orange-500: #F73B20;
+  --color-orange-600: #D93A1A;
+  --color-orange-700: #B52E12;
+}
