@@ -78,7 +78,7 @@ export function Features() {
     <section id="features" ref={ref} className="py-16 sm:py-24 lg:py-32 relative bg-white">
       {/* Background decoration */}
       <motion.div
-        className="absolute top-0 left-1/4 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
+        className="hidden md:block absolute top-0 left-1/4 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
         style={{ y }}
       />
 

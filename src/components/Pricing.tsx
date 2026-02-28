@@ -69,8 +69,8 @@ export function Pricing() {
     return (
         <section id="pricing" className="py-16 sm:py-24 lg:py-32 relative bg-gray-50 z-20 overflow-hidden">
             {/* Static background decorations */}
-            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-100 rounded-full blur-[120px] pointer-events-none opacity-40" />
-            <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gray-200 rounded-full blur-[120px] pointer-events-none opacity-40" />
+            <div className="hidden md:block absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-100 rounded-full blur-[120px] pointer-events-none opacity-40" />
+            <div className="hidden md:block absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gray-200 rounded-full blur-[120px] pointer-events-none opacity-40" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div

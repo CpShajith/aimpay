@@ -65,7 +65,7 @@ export function HowItWorks() {
     <section id="how-it-works" ref={ref} className="scroll-mt-24 py-16 sm:py-24 lg:py-32 relative bg-white">
       {/* Background decorations */}
       <motion.div
-        className="absolute top-1/2 right-0 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
+        className="hidden md:block absolute top-1/2 right-0 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
         style={{ y }}
       />
 

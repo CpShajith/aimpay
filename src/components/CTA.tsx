@@ -9,8 +9,8 @@ export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
         <div className="absolute inset-0 bg-gray-900" />
 
         {/* Static orbs */}
-        <div className="absolute top-20 left-20 w-72 h-72 bg-orange-600 rounded-full blur-[100px] opacity-20" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-[100px] opacity-10" />
+        <div className="hidden md:block absolute top-20 left-20 w-72 h-72 bg-orange-600 rounded-full blur-[100px] opacity-20" />
+        <div className="hidden md:block absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-[100px] opacity-10" />
 
         {/* Static grid */}
         <div

@@ -45,8 +45,8 @@ export function SignIn({ onBack, onGetStarted }: SignInProps) {
         <div className="fixed inset-0 z-[100] overflow-y-auto bg-gray-50">
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-orange-100 rounded-full blur-[150px]" />
-                <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gray-100 rounded-full blur-[150px]" />
+                <div className="hidden md:block absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-orange-100 rounded-full blur-[150px]" />
+                <div className="hidden md:block absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gray-100 rounded-full blur-[150px]" />
             </div>
 
             <div className="relative min-h-screen flex flex-col items-center justify-center px-4 py-8">
@@ -73,7 +73,7 @@ export function SignIn({ onBack, onGetStarted }: SignInProps) {
                     transition={{ duration: 0.4, ease: 'easeOut' }}
                 >
                     {/* Subtle shadow glow */}
-                    <div className="absolute -inset-1 bg-gradient-to-br from-orange-200 to-gray-200 rounded-3xl blur-xl opacity-50" />
+                    <div className="hidden md:block absolute -inset-1 bg-gradient-to-br from-orange-200 to-gray-200 rounded-3xl blur-xl opacity-50" />
 
                     <div className="relative bg-white border border-gray-200 rounded-3xl p-8 shadow-xl">
                         {/* Header */}

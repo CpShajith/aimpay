@@ -28,7 +28,7 @@ export function SecurityPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="absolute -top-24 -right-24 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="hidden md:block absolute -top-24 -right-24 w-64 h-64 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
                     <Server className="w-12 h-12 text-orange-500 mb-6" />
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Infrastructure Security</h3>
                     <p className="text-gray-500 leading-relaxed space-y-4">
@@ -47,7 +47,7 @@ export function SecurityPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                 >
-                    <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
+                    <div className="hidden md:block absolute -bottom-24 -left-24 w-64 h-64 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
                     <Key className="w-12 h-12 text-orange-500 mb-6" />
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Data & Identity Encryption</h3>
                     <p className="text-gray-500 leading-relaxed">

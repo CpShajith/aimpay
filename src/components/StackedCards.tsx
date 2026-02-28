@@ -126,7 +126,7 @@ export function StackedCards() {
   return (
     <section className="py-16 sm:py-24 lg:py-32 relative z-10 bg-gray-50">
       {/* Static background decoration */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-orange-100 rounded-full blur-[120px] opacity-50" />
+      <div className="hidden md:block absolute top-1/4 right-0 w-96 h-96 bg-orange-100 rounded-full blur-[120px] opacity-50" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
         <motion.div

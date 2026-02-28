@@ -41,8 +41,8 @@ export function AddExchangeSend() {
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-orange-50/30" />
 
       {/* Static orbs */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-orange-100 rounded-full blur-[100px]" />
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-50 rounded-full blur-[100px]" />
+      <div className="hidden md:block absolute top-20 left-10 w-64 h-64 bg-orange-100 rounded-full blur-[100px]" />
+      <div className="hidden md:block absolute bottom-20 right-10 w-80 h-80 bg-orange-50 rounded-full blur-[100px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

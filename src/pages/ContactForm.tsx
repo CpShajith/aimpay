@@ -35,8 +35,8 @@ export function ContactForm({ onBack }: ContactFormProps) {
             <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white">
                 {/* Background orbs */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-[120px] animate-pulse" />
-                    <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+                    <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-[120px] animate-pulse" />
+                    <div className="hidden md:block absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
                 </div>
                 <motion.div
                     className="relative text-center px-8"
@@ -88,9 +88,9 @@ export function ContactForm({ onBack }: ContactFormProps) {
         <div className="fixed inset-0 z-[100] bg-white overflow-y-auto">
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-orange-600/15 rounded-full blur-[150px]" />
-                <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-red-700/15 rounded-full blur-[150px]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-50 rounded-full blur-[200px]" />
+                <div className="hidden md:block absolute -top-40 -left-40 w-[600px] h-[600px] bg-orange-600/15 rounded-full blur-[150px]" />
+                <div className="hidden md:block absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-red-700/15 rounded-full blur-[150px]" />
+                <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-50 rounded-full blur-[200px]" />
                 {/* Grid pattern */}
                 <div
                     className="absolute inset-0 opacity-[0.03]"

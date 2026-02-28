@@ -49,7 +49,7 @@ export function Benefits() {
     <section id="benefits" ref={ref} className="scroll-mt-24 py-16 sm:py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
       {/* Background decoration */}
       <motion.div
-        className="absolute top-1/2 left-0 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
+        className="hidden md:block absolute top-1/2 left-0 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
         style={{ x }}
       />
 
@@ -63,8 +63,8 @@ export function Benefits() {
             transition={{ duration: 0.8 }}
           >
             {/* Static decorative orbs */}
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-orange-100 rounded-full blur-2xl opacity-60" />
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-gray-100 rounded-full blur-2xl opacity-60" />
+            <div className="hidden md:block absolute -top-10 -left-10 w-32 h-32 bg-orange-100 rounded-full blur-2xl opacity-60" />
+            <div className="hidden md:block absolute -bottom-10 -right-10 w-40 h-40 bg-gray-100 rounded-full blur-2xl opacity-60" />
 
             <motion.div
               className="relative group"
@@ -73,7 +73,7 @@ export function Benefits() {
               transition={{ duration: 0.4 }}
             >
               {/* Border glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-gray-300 rounded-3xl opacity-20 group-hover:opacity-40 transition-opacity blur-xl" />
+              <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-orange-400 to-gray-300 rounded-3xl opacity-20 group-hover:opacity-40 transition-opacity blur-xl" />
               <div className="relative overflow-hidden rounded-3xl border-2 border-gray-200 group-hover:border-orange-300 transition-all shadow-lg">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-gray-50/30 z-10" />
                 <ImageWithFallback

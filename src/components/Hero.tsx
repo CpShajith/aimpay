@@ -18,9 +18,9 @@ export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
     >
       {/* Static decorative background shapes */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-orange-100 rounded-full blur-[100px] opacity-60" />
-        <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-orange-50 rounded-full blur-[100px] opacity-80" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-orange-50 to-transparent rounded-full blur-[80px] opacity-40" />
+        <div className="hidden md:block absolute -top-40 -right-40 w-[600px] h-[600px] bg-orange-100 rounded-full blur-[100px] opacity-60" />
+        <div className="hidden md:block absolute bottom-0 -left-40 w-[500px] h-[500px] bg-orange-50 rounded-full blur-[100px] opacity-80" />
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-orange-50 to-transparent rounded-full blur-[80px] opacity-40" />
       </div>
 
       {/* -- Hero Content -- */}
@@ -118,7 +118,7 @@ export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
             transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
           >
             {/* Static glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-200 to-orange-100 rounded-full blur-[80px] opacity-40" />
+            <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-orange-200 to-orange-100 rounded-full blur-[80px] opacity-40" />
 
             <div className="relative aspect-square w-full max-w-lg mx-auto">
               {loading ? (

@@ -50,7 +50,7 @@ export default function App() {
       <div className="min-h-screen overflow-hidden bg-white">
         {!isAdminRoute && (
           <div
-            className="fixed top-0 right-0 w-[600px] h-[600px] opacity-20 pointer-events-none z-0"
+            className="hidden md:block fixed top-0 right-0 w-[600px] h-[600px] opacity-20 pointer-events-none z-0"
             style={{ background: 'radial-gradient(circle, rgba(247,59,32,0.12) 0%, transparent 70%)' }}
           />
         )}
