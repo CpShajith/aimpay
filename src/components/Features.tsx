@@ -1,6 +1,5 @@
 import { DollarSign, Clock, Shield, Globe, TrendingDown, Lock } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import { motion } from 'motion/react';
 
 const features = [
   {
@@ -66,20 +65,12 @@ const item = {
 };
 
 export function Features() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start']
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section id="features" ref={ref} className="py-16 sm:py-24 lg:py-32 relative bg-white">
+    <section id="features" className="py-16 sm:py-24 lg:py-32 relative bg-white">
       {/* Background decoration */}
-      <motion.div
+      <div
         className="hidden md:block absolute top-0 left-1/4 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
-        style={{ y }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

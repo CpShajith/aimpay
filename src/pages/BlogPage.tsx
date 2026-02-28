@@ -95,7 +95,7 @@ export function BlogPage() {
                     >
                         <div className="h-48 overflow-hidden relative">
                             <ImageWithFallback src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            <div className="absolute top-4 left-4 bg-gray-900/90 backdrop-blur-md px-3 py-1 rounded-full border border-orange-300 text-xs text-gray-600 flex items-center gap-1">
+                            <div className="absolute top-4 left-4 bg-gray-900/90 backdrop-blur-none md:backdrop-blur-md px-3 py-1 rounded-full border border-orange-300 text-xs text-gray-600 flex items-center gap-1">
                                 <Tag className="w-3 h-3" /> {post.category}
                             </div>
                         </div>

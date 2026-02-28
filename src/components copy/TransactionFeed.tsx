@@ -57,7 +57,7 @@ export default function TransactionFeed({ rates }: TransactionFeedProps) {
   }, [rates]);
 
   return (
-    <div className="bg-slate-900/80 backdrop-blur-md rounded-xl border border-amber-500/20 shadow-xl overflow-hidden">
+    <div className="bg-slate-900/80 backdrop-blur-none md:backdrop-blur-md rounded-xl border border-amber-500/20 shadow-xl overflow-hidden">
 
       {/* Header */}
       <div className="px-5 py-4 border-b border-amber-500/20 bg-slate-900/60">

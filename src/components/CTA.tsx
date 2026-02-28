@@ -30,7 +30,7 @@ export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-2xl mb-8 relative">
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-none md:backdrop-blur-sm rounded-2xl mb-8 relative">
             <Globe className="w-10 h-10 text-white" />
           </div>
         </motion.div>
@@ -81,7 +81,7 @@ export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
           </motion.button>
 
           <motion.button
-            className="px-8 sm:px-10 py-4 sm:py-5 border-2 border-white/30 text-white text-base sm:text-lg rounded-xl backdrop-blur-sm relative overflow-hidden group w-full sm:w-auto font-medium"
+            className="px-8 sm:px-10 py-4 sm:py-5 border-2 border-white/30 text-white text-base sm:text-lg rounded-xl backdrop-blur-none md:backdrop-blur-sm relative overflow-hidden group w-full sm:w-auto font-medium"
             onClick={onGetStarted}
             whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.7)' }}
             whileTap={{ scale: 0.95 }}

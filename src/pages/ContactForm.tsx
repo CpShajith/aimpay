@@ -149,7 +149,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
                         {/* Glow border */}
                         <div className="absolute -inset-0.5 bg-gradient-to-br from-orange-500/40 via-orange-600/20 to-red-600/40 rounded-3xl blur-md opacity-70" />
 
-                        <div className="relative bg-white/80 backdrop-blur-xl border border-gray-300 rounded-3xl p-8 shadow-2xl">
+                        <div className="relative bg-white/80 backdrop-blur-none md:backdrop-blur-xl border border-gray-300 rounded-3xl p-8 shadow-2xl">
                             <form onSubmit={handleSubmit} className="space-y-6">
 
                                 {/* Name + Email row */}

@@ -106,7 +106,7 @@ export function Navigation({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden border-t border-gray-200 bg-white/98 backdrop-blur-lg"
+            className="md:hidden border-t border-gray-200 bg-white/98 backdrop-blur-none md:backdrop-blur-lg"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

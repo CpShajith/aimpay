@@ -84,7 +84,7 @@ export function AddExchangeSend() {
               onViewportEnter={() => setActiveStep(index)}
             >
               <motion.div
-                className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border-2 border-gray-200 hover:border-orange-400 transition-all duration-300 h-full overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50"
+                className="relative bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-3xl p-6 sm:p-8 border-2 border-gray-200 hover:border-orange-400 transition-all duration-300 h-full overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50"
                 whileHover={{
                   y: -10,
                   scale: 1.03,

@@ -128,14 +128,14 @@ export function VideoCarousel() {
               />
 
               {/* Video number indicator */}
-              <div className="absolute top-6 left-6 bg-black/50 backdrop-blur-md text-white font-medium px-4 py-2 rounded-full border border-white/10">
+              <div className="absolute top-6 left-6 bg-black/50 backdrop-blur-none md:backdrop-blur-md text-white font-medium px-4 py-2 rounded-full border border-white/10">
                 Slide {i + 1}
               </div>
 
               {/* Play button for non-active videos */}
               {!isActive && position !== "hidden" && (
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
+                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-none md:backdrop-blur-sm flex items-center justify-center border border-white/30">
                     <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[16px] border-transparent border-l-white ml-1" />
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export function VideoCarousel() {
       {/* Navigation buttons */}
       <button
         onClick={handlePrev}
-        className="absolute left-6 z-40 w-14 h-14 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-black/60 hover:scale-105 transition-all"
+        className="absolute left-6 z-40 w-14 h-14 rounded-full bg-black/40 backdrop-blur-none md:backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-black/60 hover:scale-105 transition-all"
         aria-label="Previous video"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -158,7 +158,7 @@ export function VideoCarousel() {
 
       <button
         onClick={handleNext}
-        className="absolute right-6 z-40 w-14 h-14 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-black/60 hover:scale-105 transition-all"
+        className="absolute right-6 z-40 w-14 h-14 rounded-full bg-black/40 backdrop-blur-none md:backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-black/60 hover:scale-105 transition-all"
         aria-label="Next video"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

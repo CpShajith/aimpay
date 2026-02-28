@@ -1,6 +1,5 @@
 import { UserPlus, ArrowRight, CheckCircle } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import { motion } from 'motion/react';
 import { useNavigate } from 'react-router';
 
 const steps = [
@@ -53,20 +52,12 @@ const item = {
 
 export function HowItWorks() {
   const navigate = useNavigate();
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start']
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
 
   return (
-    <section id="how-it-works" ref={ref} className="scroll-mt-24 py-16 sm:py-24 lg:py-32 relative bg-white">
+    <section id="how-it-works" className="scroll-mt-24 py-16 sm:py-24 lg:py-32 relative bg-white">
       {/* Background decorations */}
-      <motion.div
+      <div
         className="hidden md:block absolute top-1/2 right-0 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
-        style={{ y }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">

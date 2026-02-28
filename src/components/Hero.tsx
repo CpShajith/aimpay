@@ -122,18 +122,18 @@ export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
 
             <div className="relative aspect-square w-full max-w-lg mx-auto">
               {loading ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-xl">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-full border border-gray-200 shadow-xl">
                   <div className="w-10 h-10 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mb-4" />
                   <p className="text-gray-500 text-sm">Loading Live Rates...</p>
                 </div>
               ) : error || !rates ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm rounded-full border border-red-200 shadow-xl">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-full border border-red-200 shadow-xl">
                   <p className="text-red-500 text-sm text-center px-6 font-medium">
                     {error || 'Failed to load live rates'}
                   </p>
                 </div>
               ) : (
-                <div className="relative w-full h-full rounded-full border border-gray-100 shadow-2xl overflow-hidden bg-white/40 backdrop-blur-sm">
+                <div className="relative w-full h-full rounded-full border border-gray-100 shadow-2xl overflow-hidden bg-white/40 backdrop-blur-none md:backdrop-blur-sm">
                   <CurrencyGlobe rates={rates} />
                 </div>
               )}

@@ -33,7 +33,7 @@ export default function Home() {
       <header className="absolute top-0 left-0 right-0 z-10 p-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-orange-500/20 rounded-lg backdrop-blur-sm border border-orange-400/30">
+            <div className="p-2 bg-orange-500/20 rounded-lg backdrop-blur-none md:backdrop-blur-sm border border-orange-400/30">
               <Globe2 className="w-6 h-6 text-orange-400" />
             </div>
             <div>
@@ -43,7 +43,7 @@ export default function Home() {
               <p className="text-sm text-gray-600/70">Real-time exchange rates</p>
             </div>
           </div>
-          <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-orange-200">
+          <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-none md:backdrop-blur-sm px-4 py-2 rounded-lg border border-orange-200">
             <RefreshCw className="w-4 h-4 text-orange-400" />
             <span className="text-sm text-orange-200">
               Updated: {lastUpdated}
@@ -59,7 +59,7 @@ export default function Home() {
 
       Instructions
       {/* <div className="absolute bottom-6 left-6 right-6 z-10">
-            <div className="max-w-md mx-auto bg-slate-800/80 backdrop-blur-md px-6 py-4 rounded-xl border border-orange-300 shadow-2xl">
+            <div className="max-w-md mx-auto bg-slate-800/80 backdrop-blur-none md:backdrop-blur-md px-6 py-4 rounded-xl border border-orange-300 shadow-2xl">
               <p className="text-sm text-orange-200 text-center">
                 <span className="font-semibold text-orange-400">Drag to rotate</span> the globe
                 <span className="mx-2">•</span>
@@ -73,7 +73,7 @@ export default function Home() {
       {/* Right Sidebar */}
       <div className="absolute top-24 right-6 z-10 w-80 space-y-4">
 
-        {/* <div className="bg-slate-800/80 backdrop-blur-md px-5 py-4 rounded-xl border border-orange-300 shadow-2xl">
+        {/* <div className="bg-slate-800/80 backdrop-blur-none md:backdrop-blur-md px-5 py-4 rounded-xl border border-orange-300 shadow-2xl">
               <h3 className="text-sm font-semibold text-orange-400 mb-3">Exchange Rates (USD)</h3>
               <div className="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
                 {Object.entries(rates)

@@ -42,15 +42,13 @@ export function Benefits() {
     offset: ['start end', 'end start']
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], [-100, 100]);
   const imageScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
 
   return (
     <section id="benefits" ref={ref} className="scroll-mt-24 py-16 sm:py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
       {/* Background decoration */}
-      <motion.div
+      <div
         className="hidden md:block absolute top-1/2 left-0 w-96 h-96 bg-orange-100 rounded-full blur-[120px]"
-        style={{ x }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
