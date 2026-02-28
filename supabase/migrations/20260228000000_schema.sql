@@ -66,3 +66,17 @@ create policy "Admins can view all transactions."
 create policy "Admins can update all transactions."
   on transactions for update
   using ( public.is_admin() );
+
+-- Trigger for Automatically Creating Profiles on Sign Up
+create or replace function public.handle_new_user()
+returns trigger as $$
+begin
+  insert into public.profiles (id, full_name, role)
+  values (new.id, new.raw_user_meta_data->>'full_name', 'user');
+  return new;
+end;
+$$ language plpgsql security definer;
+
+create trigger on_auth_user_created
+  after insert on auth.users
+  for each row execute procedure public.handle_new_user();
