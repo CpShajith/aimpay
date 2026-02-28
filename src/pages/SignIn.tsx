@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Eye, EyeOff, Mail, Lock, ArrowRight, Sparkles, ArrowLeft } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { useNavigate } from 'react-router';
 
 interface SignInProps {
     onBack: () => void;
@@ -8,17 +10,35 @@ interface SignInProps {
 }
 
 export function SignIn({ onBack, onGetStarted }: SignInProps) {
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
+        setErrorMsg('');
+
+        const { error } = await supabase.auth.signInWithPassword({
+            email,
+            password
+        });
+
+        setIsLoading(false);
+        if (error) {
+            setErrorMsg(error.message);
+        } else {
+            // Check if admin to route correctly
+            const { data } = await supabase.from('profiles').select('role').single();
+            if (data?.role === 'admin') {
+                navigate('/admin');
+            } else {
+                navigate('/');
+            }
+        }
     };
 
     return (
@@ -89,6 +109,12 @@ export function SignIn({ onBack, onGetStarted }: SignInProps) {
                                 Sign in to your account to continue
                             </motion.p>
                         </div>
+
+                        {errorMsg && (
+                            <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm">
+                                {errorMsg}
+                            </div>
+                        )}
 
                         {/* Form */}
                         <motion.form

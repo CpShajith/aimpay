@@ -24,8 +24,14 @@ import { TermsOfServicePage } from './pages/TermsOfServicePage';
 import { CookiePolicyPage } from './pages/CookiePolicyPage';
 import { CompliancePage } from './pages/CompliancePage';
 
+// Admin imports
+import { AuthProvider } from './contexts/AuthContext';
+import { AdminLayout } from './admin/layouts/AdminLayout';
+import { AdminDashboard } from './admin/pages/AdminDashboard';
+import { AdminUsers } from './admin/pages/AdminUsers';
+import { AdminTransactions } from './admin/pages/AdminTransactions';
+
 import { Routes, Route, useNavigate, useLocation } from 'react-router';
-import { AnimatePresence } from 'motion/react';
 import './styles/globals.css';
 
 export default function App() {
@@ -37,56 +43,65 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
-    <div className="min-h-screen overflow-hidden" style={{ background: '#ffffff' }}>
-      {/* Static top-right decorative glow */}
-      <div
-        className="fixed top-0 right-0 w-[600px] h-[600px] opacity-20 pointer-events-none z-0"
-        style={{ background: 'radial-gradient(circle, rgba(247,59,32,0.12) 0%, transparent 70%)' }}
-      />
-
-
-
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col min-h-screen">
-        {!['/signin'].includes(location.pathname) && (
-          <Navigation
-            onSignInClick={() => navigate('/signin')}
-            onGetStartedClick={() => navigate('/contact')}
+    <AuthProvider>
+      <div className="min-h-screen overflow-hidden bg-white">
+        {!isAdminRoute && (
+          <div
+            className="fixed top-0 right-0 w-[600px] h-[600px] opacity-20 pointer-events-none z-0"
+            style={{ background: 'radial-gradient(circle, rgba(247,59,32,0.12) 0%, transparent 70%)' }}
           />
         )}
 
-        <main className="flex-grow">
-          <Routes>
-            {/* Main routes */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/signin" element={<SignIn onBack={() => navigate('/')} onGetStarted={() => navigate('/contact')} />} />
-            <Route path="/contact-form" element={<ContactForm onBack={() => navigate('/')} />} />
+        <div className="relative z-10 flex flex-col min-h-screen">
+          {!isAdminRoute && !['/signin'].includes(location.pathname) && (
+            <Navigation
+              onSignInClick={() => navigate('/signin')}
+              onGetStartedClick={() => navigate('/contact')}
+            />
+          )}
 
-            {/* Product */}
-            <Route path="/features" element={<FeaturesPage />} />
-            <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/security" element={<SecurityPage />} />
-            <Route path="/api" element={<ApiPage />} />
+          <main className="flex-grow">
+            <Routes>
+              {/* Main routes */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/signin" element={<SignIn onBack={() => navigate('/')} onGetStarted={() => navigate('/contact')} />} />
+              <Route path="/contact-form" element={<ContactForm onBack={() => navigate('/')} />} />
 
-            {/* Company */}
-            <Route path="/about-us" element={<AboutUsPage />} />
-            <Route path="/careers" element={<CareersPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+              {/* Product */}
+              <Route path="/features" element={<FeaturesPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/security" element={<SecurityPage />} />
+              <Route path="/api" element={<ApiPage />} />
 
-            {/* Legal */}
-            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-            <Route path="/cookie-policy" element={<CookiePolicyPage />} />
-            <Route path="/compliance" element={<CompliancePage />} />
-          </Routes>
-        </main>
+              {/* Company */}
+              <Route path="/about-us" element={<AboutUsPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/contact" element={<ContactPage />} />
 
-        {!['/signin', '/contact'].includes(location.pathname) && <Footer />}
+              {/* Legal */}
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+              <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+              <Route path="/compliance" element={<CompliancePage />} />
+
+              {/* Admin Routes */}
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<AdminDashboard />} />
+                <Route path="users" element={<AdminUsers />} />
+                <Route path="transactions" element={<AdminTransactions />} />
+                <Route path="settings" element={<div className="p-8 text-gray-500 text-center border-2 border-dashed border-gray-200 rounded-2xl mx-auto max-w-lg mt-10">Settings placeholder</div>} />
+              </Route>
+            </Routes>
+          </main>
+
+          {!isAdminRoute && !['/signin', '/contact'].includes(location.pathname) && <Footer />}
+        </div>
       </div>
-
-    </div>
+    </AuthProvider>
   );
 }
