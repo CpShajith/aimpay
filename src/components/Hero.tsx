@@ -2,11 +2,16 @@ import { ArrowRight, Globe, Zap, Shield, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useRef } from 'react';
 import { useCurrencyRates } from '../hooks/useCurrencyRates';
-import CurrencyGlobe from '../components copy/CurrencyGlobe';
+import { useMediaQuery } from '../hooks/useMediaQuery';
+import React, { Suspense } from 'react';
+
+const CurrencyGlobe = React.lazy(() => import('../components copy/CurrencyGlobe'));
 
 export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
   const ref = useRef(null);
   const { rates, loading, error } = useCurrencyRates();
+  // `lg` break point in Tailwind is 1024px
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
 
   return (
     <div
@@ -110,35 +115,44 @@ export function Hero({ onGetStarted }: { onGetStarted?: () => void }) {
             </motion.div>
           </div>
 
-          {/* RIGHT: Globe */}
-          <motion.div
-            className="relative hidden lg:block"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
-          >
-            {/* Static glow */}
-            <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-orange-200 to-orange-100 rounded-full blur-[80px] opacity-40" />
+          {/* RIGHT: Globe (Conditionally rendered to save mobile GPU/Main thread) */}
+          {isDesktop && (
+            <motion.div
+              className="relative hidden lg:block"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+            >
+              {/* Static glow */}
+              <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-orange-200 to-orange-100 rounded-full blur-[80px] opacity-40" />
 
-            <div className="relative aspect-square w-full max-w-lg mx-auto">
-              {loading ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-full border border-gray-200 shadow-xl">
-                  <div className="w-10 h-10 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mb-4" />
-                  <p className="text-gray-500 text-sm">Loading Live Rates...</p>
-                </div>
-              ) : error || !rates ? (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-full border border-red-200 shadow-xl">
-                  <p className="text-red-500 text-sm text-center px-6 font-medium">
-                    {error || 'Failed to load live rates'}
-                  </p>
-                </div>
-              ) : (
-                <div className="relative w-full h-full rounded-full border border-gray-100 shadow-2xl overflow-hidden bg-white/40 backdrop-blur-none md:backdrop-blur-sm">
-                  <CurrencyGlobe rates={rates} />
-                </div>
-              )}
-            </div>
-          </motion.div>
+              <div className="relative aspect-square w-full max-w-lg mx-auto">
+                {loading ? (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-full border border-gray-200 shadow-xl">
+                    <div className="w-10 h-10 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mb-4" />
+                    <p className="text-gray-500 text-sm">Loading Live Rates...</p>
+                  </div>
+                ) : error || !rates ? (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-full border border-red-200 shadow-xl">
+                    <p className="text-red-500 text-sm text-center px-6 font-medium">
+                      {error || 'Failed to load live rates'}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="relative w-full h-full rounded-full border border-gray-100 shadow-2xl overflow-hidden bg-white/40 backdrop-blur-none md:backdrop-blur-sm">
+                    <Suspense fallback={
+                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-xl">
+                        <div className="w-10 h-10 border-4 border-orange-200 border-t-orange-500 rounded-full animate-spin mb-4" />
+                        <p className="text-gray-500 text-sm">Loading 3D Globe...</p>
+                      </div>
+                    }>
+                      <CurrencyGlobe rates={rates} />
+                    </Suspense>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
 
         </div>
       </div>
