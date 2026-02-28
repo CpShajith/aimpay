@@ -17,10 +17,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-orange-900/50" style={{ background: '#150300' }}>
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-orange-900/10 to-transparent pointer-events-none" />
-
+    <footer className="relative border-t border-gray-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 mb-12"
@@ -31,24 +28,20 @@ export function Footer() {
         >
           {/* Brand section */}
           <div className="col-span-2 lg:col-span-2">
-            <motion.div
-              className="flex items-center gap-3 mb-6"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg shadow-orange-500/30">
-                <span className="text-white text-2xl">A</span>
+            <motion.div className="flex items-center gap-3 mb-6" whileHover={{ scale: 1.05 }}>
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-md">
+                <span className="text-white text-2xl font-bold">A</span>
               </div>
-              <span className="text-3xl text-white">AimPay</span>
+              <span className="text-3xl text-gray-900 font-semibold">AimPay</span>
             </motion.div>
-            <p className="text-orange-200/60 mb-6 leading-relaxed max-w-sm">
+            <p className="text-gray-500 mb-6 leading-relaxed max-w-sm">
               Making cross-border payments simple, fast, and affordable for everyone. Send money to 180+ countries with confidence.
             </p>
 
-            {/* Contact info */}
             <div className="space-y-3">
               <motion.a
                 href="mailto:hello@aimpay.com"
-                className="flex items-center gap-2 text-orange-200/60 hover:text-orange-300 transition-colors group"
+                className="flex items-center gap-2 text-gray-500 hover:text-orange-500 transition-colors group"
                 whileHover={{ x: 5 }}
               >
                 <Mail className="w-4 h-4 group-hover:text-orange-500" />
@@ -56,14 +49,14 @@ export function Footer() {
               </motion.a>
               <motion.a
                 href="tel:+1234567890"
-                className="flex items-center gap-2 text-orange-200/60 hover:text-orange-300 transition-colors group"
+                className="flex items-center gap-2 text-gray-500 hover:text-orange-500 transition-colors group"
                 whileHover={{ x: 5 }}
               >
                 <Phone className="w-4 h-4 group-hover:text-orange-500" />
                 <span>+1 (234) 567-890</span>
               </motion.a>
               <motion.div
-                className="flex items-center gap-2 text-orange-200/60"
+                className="flex items-center gap-2 text-gray-500"
                 whileHover={{ x: 5 }}
               >
                 <MapPin className="w-4 h-4" />
@@ -81,7 +74,7 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
             >
-              <h3 className="text-white text-lg mb-6 capitalize">{title}</h3>
+              <h3 className="text-gray-900 text-lg font-semibold mb-6 capitalize">{title}</h3>
               <ul className="space-y-3">
                 {links.map((link) => {
                   const path = `/${link.toLowerCase().replace(/\s+/g, '-')}`;
@@ -89,10 +82,10 @@ export function Footer() {
                     <li key={link}>
                       <Link
                         to={path}
-                        className="text-orange-200/60 hover:text-orange-400 transition-colors inline-block relative group"
+                        className="text-gray-500 hover:text-orange-500 transition-colors inline-block relative group"
                       >
                         <span className="relative z-10">{link}</span>
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-orange-600 group-hover:w-full transition-all duration-300" />
+                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300" />
                       </Link>
                     </li>
                   );
@@ -104,16 +97,13 @@ export function Footer() {
 
         {/* Bottom section */}
         <motion.div
-          className="border-t border-orange-900/50 pt-8 flex flex-col md:flex-row justify-between items-center gap-6"
+          className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.p
-            className="text-orange-200/60"
-            whileHover={{ scale: 1.05 }}
-          >
+          <motion.p className="text-gray-500" whileHover={{ scale: 1.05 }}>
             © 2025 AimPay. All rights reserved.
           </motion.p>
 
@@ -123,19 +113,11 @@ export function Footer() {
               <motion.a
                 key={i}
                 href={social.href}
-                className="w-10 h-10 bg-orange-900/40 rounded-lg flex items-center justify-center text-orange-300 hover:text-white border-2 border-orange-800/50 hover:border-orange-500 transition-all group relative overflow-hidden shadow-sm"
-                whileHover={{
-                  scale: 1.1,
-                  rotate: 5
-                }}
+                className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center text-gray-500 hover:text-white hover:bg-orange-500 border border-gray-200 hover:border-orange-500 transition-all group relative overflow-hidden"
+                whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <social.icon className="w-5 h-5 relative z-10" />
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"
-                  initial={{ scale: 0 }}
-                  whileHover={{ scale: 1 }}
-                />
               </motion.a>
             ))}
           </div>
@@ -143,7 +125,7 @@ export function Footer() {
 
         {/* Trust badges */}
         <motion.div
-          className="mt-10 pt-10 border-t border-orange-900/50"
+          className="mt-10 pt-10 border-t border-gray-100"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -153,7 +135,7 @@ export function Footer() {
             {['PCI DSS Compliant', 'SSL Secured', 'GDPR Compliant', 'ISO 27001'].map((badge, i) => (
               <motion.div
                 key={i}
-                className="text-orange-300/50 text-sm"
+                className="text-gray-400 text-sm font-medium"
                 whileHover={{ scale: 1.1, opacity: 1 }}
               >
                 {badge}

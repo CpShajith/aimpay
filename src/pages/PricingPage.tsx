@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Check } from "lucide-react";
+import { useNavigate } from "react-router";
 
 const plans = [
     {
@@ -49,6 +50,7 @@ const plans = [
 ];
 
 export function PricingPage() {
+    const navigate = useNavigate();
     return (
         <div className="pt-32 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <motion.div
@@ -60,10 +62,10 @@ export function PricingPage() {
                 <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">
                     Transparent Pricing
                 </span>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6 leading-tight">
                     Simple plans to fit your global needs
                 </h1>
-                <p className="text-lg text-orange-200/70">
+                <p className="text-lg text-gray-500">
                     No hidden fees, no markup on exchange rates. Just honest pricing that scales with your growth.
                 </p>
             </motion.div>
@@ -73,8 +75,8 @@ export function PricingPage() {
                     <motion.div
                         key={idx}
                         className={`relative p-6 sm:p-8 rounded-3xl transition-transform ${plan.highlight
-                            ? "bg-gradient-to-b from-orange-600 to-orange-900 border-2 border-orange-500 md:scale-105 shadow-2xl shadow-orange-900/40 z-10"
-                            : "bg-[#2d0b00]/80 border border-orange-900/50 hover:border-orange-500/50"
+                            ? "bg-gradient-to-b from-orange-600 to-orange-900 border-2 border-orange-500 md:scale-105 shadow-2xl shadow-gray-200/50 z-10"
+                            : "bg-gray-100/80 border border-gray-200 hover:border-orange-400"
                             }`}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -86,33 +88,35 @@ export function PricingPage() {
                                 Most Popular
                             </div>
                         )}
-                        <h3 className={`text-2xl font-bold mb-2 ${plan.highlight ? "text-white" : "text-white"}`}>
+                        <h3 className={`text-2xl font-bold mb-2 ${plan.highlight ? "text-gray-900" : "text-gray-900"}`}>
                             {plan.name}
                         </h3>
-                        <p className={`text-sm mb-6 ${plan.highlight ? "text-orange-200" : "text-orange-200/60"}`}>
+                        <p className={`text-sm mb-6 ${plan.highlight ? "text-orange-200" : "text-gray-500"}`}>
                             {plan.desc}
                         </p>
                         <div className="mb-8">
-                            <span className={`text-5xl font-extrabold ${plan.highlight ? "text-white" : "text-white"}`}>
+                            <span className={`text-5xl font-extrabold ${plan.highlight ? "text-gray-900" : "text-gray-900"}`}>
                                 {plan.price}
                             </span>
-                            <span className={`text-lg ${plan.highlight ? "text-orange-200" : "text-orange-200/60"}`}>
+                            <span className={`text-lg ${plan.highlight ? "text-orange-200" : "text-gray-500"}`}>
                                 {plan.period}
                             </span>
                         </div>
 
-                        <button className={`w-full py-4 rounded-xl font-semibold mb-8 transition-colors ${plan.highlight
-                            ? "bg-white text-orange-900 hover:bg-orange-100"
-                            : "bg-orange-900/50 text-white border border-orange-700 hover:bg-orange-800"
-                            }`}>
+                        <button
+                            onClick={() => navigate('/contact')}
+                            className={`w-full py-4 rounded-xl font-semibold mb-8 transition-colors ${plan.highlight
+                                ? "bg-white text-orange-700 hover:bg-orange-100"
+                                : "bg-gray-900/50 text-white border border-orange-700 hover:bg-gray-800"
+                                }`}>
                             {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
                         </button>
 
                         <ul className="space-y-4">
                             {plan.features.map((feat, i) => (
                                 <li key={i} className="flex items-start gap-3">
-                                    <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.highlight ? "text-orange-300" : "text-orange-500"}`} />
-                                    <span className={`${plan.highlight ? "text-white" : "text-orange-100/80"}`}>{feat}</span>
+                                    <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.highlight ? "text-gray-600" : "text-orange-500"}`} />
+                                    <span className={`${plan.highlight ? "text-gray-700" : "text-gray-600"}`}>{feat}</span>
                                 </li>
                             ))}
                         </ul>

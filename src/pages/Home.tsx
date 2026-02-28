@@ -10,7 +10,7 @@ export default function Home() {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen" style={{ background: 'transparent' }}>
         <Loader2 className="w-12 h-12 animate-spin text-orange-400 mb-4" />
-        <p className="text-orange-200/70 text-lg">Loading currency rates...</p>
+        <p className="text-gray-500 text-lg">Loading currency rates...</p>
       </div>
     );
   }
@@ -18,7 +18,7 @@ export default function Home() {
   if (error || !rates) {
     return (
       <div className="flex items-center justify-center min-h-screen" style={{ background: 'transparent' }}>
-        <div className="bg-orange-950/80 border border-red-500/30 rounded-xl px-6 py-4">
+        <div className="bg-gray-900/90 border border-red-500/30 rounded-xl px-6 py-4">
           <p className="text-red-400 text-center">
             {error || 'Failed to load currency rates'}
           </p>
@@ -40,10 +40,10 @@ export default function Home() {
               <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
                 CurrencyGlobe
               </h1>
-              <p className="text-sm text-orange-300/70">Real-time exchange rates</p>
+              <p className="text-sm text-gray-600/70">Real-time exchange rates</p>
             </div>
           </div>
-          <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-orange-500/20">
+          <div className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm px-4 py-2 rounded-lg border border-orange-200">
             <RefreshCw className="w-4 h-4 text-orange-400" />
             <span className="text-sm text-orange-200">
               Updated: {lastUpdated}
@@ -59,7 +59,7 @@ export default function Home() {
 
       Instructions
       {/* <div className="absolute bottom-6 left-6 right-6 z-10">
-            <div className="max-w-md mx-auto bg-slate-800/80 backdrop-blur-md px-6 py-4 rounded-xl border border-orange-500/30 shadow-2xl">
+            <div className="max-w-md mx-auto bg-slate-800/80 backdrop-blur-md px-6 py-4 rounded-xl border border-orange-300 shadow-2xl">
               <p className="text-sm text-orange-200 text-center">
                 <span className="font-semibold text-orange-400">Drag to rotate</span> the globe
                 <span className="mx-2">•</span>
@@ -73,7 +73,7 @@ export default function Home() {
       {/* Right Sidebar */}
       <div className="absolute top-24 right-6 z-10 w-80 space-y-4">
 
-        {/* <div className="bg-slate-800/80 backdrop-blur-md px-5 py-4 rounded-xl border border-orange-500/30 shadow-2xl">
+        {/* <div className="bg-slate-800/80 backdrop-blur-md px-5 py-4 rounded-xl border border-orange-300 shadow-2xl">
               <h3 className="text-sm font-semibold text-orange-400 mb-3">Exchange Rates (USD)</h3>
               <div className="space-y-2 max-h-64 overflow-y-auto custom-scrollbar">
                 {Object.entries(rates)

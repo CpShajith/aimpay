@@ -46,10 +46,10 @@ export function FeaturesPage() {
                 <span className="text-orange-500 font-semibold tracking-wider uppercase text-sm">
                     Platform Features
                 </span>
-                <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 mb-6 leading-tight">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mt-4 mb-6 leading-tight">
                     Everything you need to manage money <span className="text-orange-500">without borders.</span>
                 </h1>
-                <p className="text-lg text-orange-200/70">
+                <p className="text-lg text-gray-500">
                     Built for speed, engineered for security. AimPay combines the power of enterprise finance with the simplicity of a modern app.
                 </p>
             </motion.div>
@@ -58,19 +58,19 @@ export function FeaturesPage() {
                 {features.map((feature, idx) => (
                     <motion.div
                         key={idx}
-                        className="bg-orange-950/20 border border-orange-900/30 p-8 rounded-2xl hover:bg-orange-900/30 transition-all group"
+                        className="bg-gray-100 border border-gray-200 p-8 rounded-2xl hover:bg-gray-100 transition-all group"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: idx * 0.1, duration: 0.5 }}
                     >
                         <div className="w-14 h-14 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <feature.icon className="w-7 h-7 text-orange-400 group-hover:text-orange-300" />
+                            <feature.icon className="w-7 h-7 text-orange-400 group-hover:text-gray-600" />
                         </div>
-                        <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-orange-400 transition-colors">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-orange-400 transition-colors">
                             {feature.title}
                         </h3>
-                        <p className="text-orange-200/60 leading-relaxed">
+                        <p className="text-gray-500 leading-relaxed">
                             {feature.desc}
                         </p>
                     </motion.div>

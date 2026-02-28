@@ -32,7 +32,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
 
     if (submitted) {
         return (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#1a0500]">
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white">
                 {/* Background orbs */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                     <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-[120px] animate-pulse" />
@@ -53,7 +53,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
                         <CheckCircle className="w-12 h-12 text-white" />
                     </motion.div>
                     <motion.h2
-                        className="text-4xl font-bold text-white mb-3"
+                        className="text-4xl font-bold text-gray-900 mb-3"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
@@ -61,7 +61,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
                         Message Sent! 🎉
                     </motion.h2>
                     <motion.p
-                        className="text-orange-200/80 text-lg mb-8 max-w-sm mx-auto"
+                        className="text-gray-600 text-lg mb-8 max-w-sm mx-auto"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
@@ -85,12 +85,12 @@ export function ContactForm({ onBack }: ContactFormProps) {
     }
 
     return (
-        <div className="fixed inset-0 z-[100] bg-[#1a0500] overflow-y-auto">
+        <div className="fixed inset-0 z-[100] bg-white overflow-y-auto">
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-orange-600/15 rounded-full blur-[150px]" />
                 <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-red-700/15 rounded-full blur-[150px]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-900/10 rounded-full blur-[200px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-50 rounded-full blur-[200px]" />
                 {/* Grid pattern */}
                 <div
                     className="absolute inset-0 opacity-[0.03]"
@@ -107,7 +107,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
                     {/* Back button */}
                     <motion.button
                         onClick={onBack}
-                        className="flex items-center gap-2 text-orange-300/80 hover:text-orange-200 transition-colors mb-8 group"
+                        className="flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors mb-8 group"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.4 }}
@@ -124,17 +124,17 @@ export function ContactForm({ onBack }: ContactFormProps) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/15 border border-orange-500/30 text-orange-300 rounded-full text-sm mb-5">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/15 border border-orange-300 text-orange-300 rounded-full text-sm mb-5">
                             <Sparkles className="w-3.5 h-3.5" />
                             Get in Touch
                         </div>
-                        <h1 className="text-5xl font-bold text-white leading-tight mb-3">
+                        <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-3">
                             Start Your{' '}
                             <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                                 Journey
                             </span>
                         </h1>
-                        <p className="text-orange-200/60 text-lg">
+                        <p className="text-gray-500 text-lg">
                             Fill out the form below and we'll reach out to get you started with AimPay.
                         </p>
                     </motion.div>
@@ -149,13 +149,13 @@ export function ContactForm({ onBack }: ContactFormProps) {
                         {/* Glow border */}
                         <div className="absolute -inset-0.5 bg-gradient-to-br from-orange-500/40 via-orange-600/20 to-red-600/40 rounded-3xl blur-md opacity-70" />
 
-                        <div className="relative bg-[#200a00]/80 backdrop-blur-xl border border-orange-500/20 rounded-3xl p-8 shadow-2xl">
+                        <div className="relative bg-white/80 backdrop-blur-xl border border-gray-300 rounded-3xl p-8 shadow-2xl">
                             <form onSubmit={handleSubmit} className="space-y-6">
 
                                 {/* Name + Email row */}
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <div>
-                                        <label className="block text-sm text-orange-200/70 mb-2 ml-1">Full Name</label>
+                                        <label className="block text-sm text-gray-500 mb-2 ml-1">Full Name</label>
                                         <div className="relative group">
                                             <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-orange-500/50 group-focus-within:text-orange-400 transition-colors" />
                                             <input
@@ -165,13 +165,13 @@ export function ContactForm({ onBack }: ContactFormProps) {
                                                 onChange={handleChange}
                                                 placeholder="John Doe"
                                                 required
-                                                className="w-full pl-11 pr-4 py-3.5 bg-white/5 border border-orange-500/15 focus:border-orange-500/50 text-white placeholder-orange-200/25 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-500/15 text-sm"
+                                                className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-300 focus:border-orange-500 text-gray-900 placeholder-gray-400 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-200 text-sm"
                                             />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm text-orange-200/70 mb-2 ml-1">Email Address</label>
+                                        <label className="block text-sm text-gray-500 mb-2 ml-1">Email Address</label>
                                         <div className="relative group">
                                             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-orange-500/50 group-focus-within:text-orange-400 transition-colors" />
                                             <input
@@ -181,7 +181,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
                                                 onChange={handleChange}
                                                 placeholder="you@example.com"
                                                 required
-                                                className="w-full pl-11 pr-4 py-3.5 bg-white/5 border border-orange-500/15 focus:border-orange-500/50 text-white placeholder-orange-200/25 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-500/15 text-sm"
+                                                className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-300 focus:border-orange-500 text-gray-900 placeholder-gray-400 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-200 text-sm"
                                             />
                                         </div>
                                     </div>
@@ -190,7 +190,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
                                 {/* Phone + Subject row */}
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <div>
-                                        <label className="block text-sm text-orange-200/70 mb-2 ml-1">Phone Number</label>
+                                        <label className="block text-sm text-gray-500 mb-2 ml-1">Phone Number</label>
                                         <div className="relative group">
                                             <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-orange-500/50 group-focus-within:text-orange-400 transition-colors" />
                                             <input
@@ -199,34 +199,34 @@ export function ContactForm({ onBack }: ContactFormProps) {
                                                 value={form.phone}
                                                 onChange={handleChange}
                                                 placeholder="+1 (555) 000-0000"
-                                                className="w-full pl-11 pr-4 py-3.5 bg-white/5 border border-orange-500/15 focus:border-orange-500/50 text-white placeholder-orange-200/25 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-500/15 text-sm"
+                                                className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-300 focus:border-orange-500 text-gray-900 placeholder-gray-400 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-200 text-sm"
                                             />
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm text-orange-200/70 mb-2 ml-1">I'm interested in</label>
+                                        <label className="block text-sm text-gray-500 mb-2 ml-1">I'm interested in</label>
                                         <select
                                             name="subject"
                                             value={form.subject}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-4 py-3.5 bg-white/5 border border-orange-500/15 focus:border-orange-500/50 text-white rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-500/15 text-sm appearance-none"
+                                            className="w-full px-4 py-3.5 bg-gray-50 border border-gray-300 focus:border-orange-500 text-gray-900 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-200 text-sm appearance-none"
                                             style={{ colorScheme: 'dark' }}
                                         >
-                                            <option value="" disabled className="bg-[#200a00]">Select a topic</option>
-                                            <option value="personal" className="bg-[#200a00]">Personal Payments</option>
-                                            <option value="business" className="bg-[#200a00]">Business Account</option>
-                                            <option value="enterprise" className="bg-[#200a00]">Enterprise Solutions</option>
-                                            <option value="api" className="bg-[#200a00]">API Integration</option>
-                                            <option value="other" className="bg-[#200a00]">Other</option>
+                                            <option value="" disabled className="bg-white">Select a topic</option>
+                                            <option value="personal" className="bg-white">Personal Payments</option>
+                                            <option value="business" className="bg-white">Business Account</option>
+                                            <option value="enterprise" className="bg-white">Enterprise Solutions</option>
+                                            <option value="api" className="bg-white">API Integration</option>
+                                            <option value="other" className="bg-white">Other</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 {/* Message */}
                                 <div>
-                                    <label className="block text-sm text-orange-200/70 mb-2 ml-1">Your Message</label>
+                                    <label className="block text-sm text-gray-500 mb-2 ml-1">Your Message</label>
                                     <div className="relative group">
                                         <MessageSquare className="absolute left-4 top-4 w-4 h-4 text-orange-500/50 group-focus-within:text-orange-400 transition-colors" />
                                         <textarea
@@ -236,7 +236,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
                                             placeholder="Tell us about your needs..."
                                             rows={5}
                                             required
-                                            className="w-full pl-11 pr-4 py-3.5 bg-white/5 border border-orange-500/15 focus:border-orange-500/50 text-white placeholder-orange-200/25 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-500/15 text-sm resize-none"
+                                            className="w-full pl-11 pr-4 py-3.5 bg-gray-50 border border-gray-300 focus:border-orange-500 text-gray-900 placeholder-gray-400 rounded-xl outline-none transition-all focus:ring-2 focus:ring-orange-200 text-sm resize-none"
                                         />
                                     </div>
                                 </div>
@@ -268,7 +268,7 @@ export function ContactForm({ onBack }: ContactFormProps) {
                                     </span>
                                 </motion.button>
 
-                                <p className="text-center text-xs text-orange-200/40">
+                                <p className="text-center text-xs text-gray-400">
                                     By submitting, you agree to our{' '}
                                     <span className="text-orange-400 cursor-pointer hover:text-orange-300 transition-colors">Privacy Policy</span>
                                     {' '}and{' '}
@@ -292,10 +292,10 @@ export function ContactForm({ onBack }: ContactFormProps) {
                         ].map((stat) => (
                             <div
                                 key={stat.label}
-                                className="bg-white/5 border border-orange-500/15 rounded-2xl p-4 text-center"
+                                className="bg-gray-50 border border-gray-300 rounded-2xl p-4 text-center"
                             >
                                 <div className="text-xl font-bold text-orange-400 mb-1">{stat.value}</div>
-                                <div className="text-xs text-orange-200/50">{stat.label}</div>
+                                <div className="text-xs text-gray-400">{stat.label}</div>
                             </div>
                         ))}
                     </motion.div>

@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 
+type Env = Record<string, unknown>;
 const app = new Hono<{ Bindings: Env }>();
 
 app.use("/*", cors());
@@ -10,7 +11,7 @@ app.get("/api/currency-rates", async (c) => {
   try {
     // Using exchangerate-api.com free API
     const response = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
-    
+
     if (!response.ok) {
       throw new Error("Failed to fetch currency rates");
     }
@@ -20,7 +21,7 @@ app.get("/api/currency-rates", async (c) => {
       date: string;
       rates: Record<string, number>;
     };
-    
+
     // Return rates for major currencies with accurate geographic coordinates (capital cities/financial centers)
     const currencyData = {
       base: data.base,

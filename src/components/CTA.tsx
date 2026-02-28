@@ -4,64 +4,20 @@ import { motion } from 'motion/react';
 export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
   return (
     <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
-      {/* Animated background */}
+      {/* Dark background */}
       <div className="absolute inset-0">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-orange-600 via-pink-600 to-orange-700"
-          animate={{
-            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          style={{
-            backgroundSize: '200% 200%'
-          }}
-        />
+        <div className="absolute inset-0 bg-gray-900" />
 
-        {/* Floating orbs */}
-        <motion.div
-          className="absolute top-20 left-20 w-72 h-72 bg-orange-400 rounded-full blur-[100px] opacity-50"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-pink-400 rounded-full blur-[100px] opacity-50"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.3, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        {/* Static orbs */}
+        <div className="absolute top-20 left-20 w-72 h-72 bg-orange-600 rounded-full blur-[100px] opacity-20" />
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-[100px] opacity-10" />
 
-        {/* Animated grid pattern */}
-        <motion.div
-          className="absolute inset-0 opacity-10"
-          animate={{
-            backgroundPosition: ['0px 0px', '50px 50px'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+        {/* Static grid */}
+        <div
+          className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)',
             backgroundSize: '50px 50px',
           }}
         />
@@ -69,46 +25,14 @@ export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, scale: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <motion.div
-            className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl mb-8 relative"
-            animate={{
-              rotate: 360,
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-sm rounded-2xl mb-8 relative">
             <Globe className="w-10 h-10 text-white" />
-
-            {/* Orbiting sparkles */}
-            {[0, 120, 240].map((rotation, i) => (
-              <motion.div
-                key={i}
-                className="absolute"
-                animate={{
-                  rotate: [rotation, rotation + 360],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: i * 0.2
-                }}
-                style={{
-                  transformOrigin: '40px 0px'
-                }}
-              >
-                <Sparkles className="w-4 h-4 text-yellow-300" />
-              </motion.div>
-            ))}
-          </motion.div>
+          </div>
         </motion.div>
 
         <motion.h2
@@ -120,27 +44,16 @@ export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
         >
           Ready to Send Money
           <br />
-          <motion.span
-            className="inline-block"
-            animate={{
-              textShadow: [
-                '0 0 20px rgba(255,255,255,0.5)',
-                '0 0 40px rgba(255,255,255,0.8)',
-                '0 0 20px rgba(255,255,255,0.5)',
-              ]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
+          <span
+            className="inline-block text-orange-400"
+            style={{ textShadow: '0 0 30px rgba(249,115,22,0.5)' }}
           >
             Globally?
-          </motion.span>
+          </span>
         </motion.h2>
 
         <motion.p
-          className="text-base sm:text-xl lg:text-2xl text-white/90 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-base sm:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -157,43 +70,24 @@ export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <motion.button
-            className="px-8 sm:px-10 py-4 sm:py-5 bg-white text-orange-600 text-base sm:text-lg rounded-xl inline-flex items-center justify-center gap-3 relative overflow-hidden group shadow-2xl w-full sm:w-auto"
+            className="px-8 sm:px-10 py-4 sm:py-5 bg-white text-gray-900 text-base sm:text-lg rounded-xl inline-flex items-center justify-center gap-3 relative overflow-hidden group shadow-2xl w-full sm:w-auto font-semibold"
             onClick={onGetStarted}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 30px 60px rgba(0,0,0,0.3)"
-            }}
+            whileHover={{ scale: 1.05, boxShadow: '0 30px 60px rgba(0,0,0,0.3)' }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="relative z-10 text-orange-600 font-bold">Get Started Now</span>
+            <span className="relative z-10">Get Started Now</span>
             <ArrowRight className="w-6 h-6 relative z-10 group-hover:translate-x-2 transition-transform" />
 
-            {/* Animated shine */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-100 to-transparent"
-              initial={{ x: "-100%" }}
-              animate={{ x: "200%" }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                repeatDelay: 1
-              }}
-            />
           </motion.button>
 
           <motion.button
-            className="px-8 sm:px-10 py-4 sm:py-5 border-3 border-white text-white text-base sm:text-lg rounded-xl backdrop-blur-sm relative overflow-hidden group w-full sm:w-auto"
+            className="px-8 sm:px-10 py-4 sm:py-5 border-2 border-white/30 text-white text-base sm:text-lg rounded-xl backdrop-blur-sm relative overflow-hidden group w-full sm:w-auto font-medium"
             onClick={onGetStarted}
-            whileHover={{
-              scale: 1.05,
-              backgroundColor: "rgba(255,255,255,0.1)"
-            }}
+            whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.7)' }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Contact Sales</span>
-            <motion.div
-              className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"
-            />
+            <motion.div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
           </motion.button>
         </motion.div>
 
@@ -205,13 +99,9 @@ export function CTA({ onGetStarted }: { onGetStarted?: () => void }) {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           {['No credit card required', 'Free account setup', 'Cancel anytime'].map((text, i) => (
-            <motion.div
-              key={i}
-              className="flex items-center gap-2"
-              whileHover={{ scale: 1.1 }}
-            >
-              <div className="w-2 h-2 bg-white rounded-full" />
-              <span className="text-white/90">{text}</span>
+            <motion.div key={i} className="flex items-center gap-2" whileHover={{ scale: 1.1 }}>
+              <div className="w-2 h-2 bg-orange-400 rounded-full" />
+              <span className="text-gray-300">{text}</span>
             </motion.div>
           ))}
         </motion.div>

@@ -11,19 +11,19 @@ export function TermsOfServicePage() {
                 transition={{ duration: 0.8 }}
             >
                 <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-orange-900/40 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
                         <FileText className="w-6 h-6 text-orange-500" />
                     </div>
                     <div>
                         <h1 className="text-3xl md:text-5xl font-bold text-white">Terms of Service</h1>
-                        <p className="text-sm text-orange-200/50 mt-2">Effective Date: January 1, 2026</p>
+                        <p className="text-sm text-gray-500 mt-2">Effective Date: January 1, 2026</p>
                     </div>
                 </div>
             </motion.div>
 
-            <div className="space-y-12 text-orange-200/80 leading-relaxed">
+            <div className="space-y-12 text-gray-500 leading-relaxed">
                 <section>
-                    <h2 className="text-2xl font-bold text-white mb-6 border-b border-orange-900/50 pb-2">1. Acceptance of Terms</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">1. Acceptance of Terms</h2>
                     <p className="mb-4">
                         By accessing and using AimPay's services, you signify your agreement to these Terms of Service. If you do not agree to these terms, you may not use the services.
                         AimPay reserves the right, at its sole discretion, to modify or replace these Terms at any time without prior notice.
@@ -31,7 +31,7 @@ export function TermsOfServicePage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-white mb-6 border-b border-orange-900/50 pb-2">2. Eligibility</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">2. Eligibility</h2>
                     <p className="mb-4">
                         You must be at least 18 years old to use the Service. By agreeing to these Terms, you represent and warrant to us that:
                         (a) you are at least 18 years old; (b) you have not previously been suspended or removed from the Service; and
@@ -40,7 +40,7 @@ export function TermsOfServicePage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-white mb-6 border-b border-orange-900/50 pb-2">3. User Accounts & Registration</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">3. User Accounts & Registration</h2>
                     <p className="mb-4">
                         To use certain features of the Service, you must register for an account. You agree to provide and maintain accurate,
                         current, and complete information. You are entirely responsible for maintaining the confidentiality of your password
@@ -49,7 +49,7 @@ export function TermsOfServicePage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-white mb-6 border-b border-orange-900/50 pb-2">4. Disclaimers & Limitations of Liability</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">4. Disclaimers & Limitations of Liability</h2>
                     <p className="mb-4">
                         AIMPAY SERVICES ARE PROVIDED "AS IS" WITHOUT ANY WARRANTY. WE DO NOT GUARANTEE THAT THE SERVICES WILL BE UNINTERRUPTED OR ERROR-FREE.
                         IN NO EVENT SHALL AIMPAY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION,

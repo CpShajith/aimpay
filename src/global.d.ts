@@ -1,6 +1,6 @@
 declare module "*.mp4" {
-  const src: string;
-  export default src;
+  const _src: string;
+  export default _src;
 }
 
 

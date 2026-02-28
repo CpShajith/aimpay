@@ -27,10 +27,10 @@ export function CareersPage() {
                 <div className="mx-auto w-16 h-16 bg-orange-600/20 rounded-2xl flex items-center justify-center mb-6">
                     <Briefcase className="w-8 h-8 text-orange-500" />
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                     Help us build the <span className="text-orange-500">future of money.</span>
                 </h1>
-                <p className="text-lg text-orange-200/70 leading-relaxed max-w-2xl mx-auto">
+                <p className="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto">
                     We're looking for ambitious, curious, and empathetic builders to join our mission of tearing down the borders of global finance.
                 </p>
             </motion.div>
@@ -42,15 +42,15 @@ export function CareersPage() {
                     {perks.map((perk, i) => (
                         <motion.div
                             key={i}
-                            className="bg-orange-950/20 border border-orange-900/30 p-6 rounded-2xl"
+                            className="bg-gray-100 border border-gray-200 p-6 rounded-2xl"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
                         >
                             <perk.icon className="w-8 h-8 text-orange-400 mb-4" />
-                            <h3 className="font-semibold text-white mb-2">{perk.title}</h3>
-                            <p className="text-sm text-orange-200/60 leading-relaxed">{perk.desc}</p>
+                            <h3 className="font-semibold text-gray-900 mb-2">{perk.title}</h3>
+                            <p className="text-sm text-gray-500 leading-relaxed">{perk.desc}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -58,13 +58,13 @@ export function CareersPage() {
 
             {/* Open Roles */}
             <div>
-                <h2 className="text-3xl font-bold text-white mb-10">Open Positions</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-10">Open Positions</h2>
                 <div className="space-y-4">
                     {openRoles.map((role, i) => (
                         <motion.a
                             key={i}
                             href="#"
-                            className="group block bg-[#1a0500] border border-orange-900/40 p-6 rounded-2xl hover:border-orange-500/50 hover:bg-[#2d0b00] transition-colors"
+                            className="group block bg-gray-50 border border-gray-200 p-6 rounded-2xl hover:border-orange-400 hover:bg-gray-100 transition-colors"
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
@@ -75,13 +75,13 @@ export function CareersPage() {
                                     <span className="text-orange-500 text-sm font-semibold uppercase tracking-wider mb-1 block">
                                         {role.dept}
                                     </span>
-                                    <h3 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">
+                                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-orange-500 transition-colors">
                                         {role.role}
                                     </h3>
                                 </div>
                                 <div className="flex items-center gap-6">
-                                    <span className="text-orange-200/60">{role.loc}</span>
-                                    <div className="w-10 h-10 rounded-full bg-orange-900/40 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white text-orange-500 transition-colors">
+                                    <span className="text-gray-500">{role.loc}</span>
+                                    <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white text-orange-500 transition-colors">
                                         <ArrowRight className="w-5 h-5" />
                                     </div>
                                 </div>

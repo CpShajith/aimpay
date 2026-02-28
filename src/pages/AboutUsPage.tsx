@@ -19,18 +19,18 @@ export function AboutUsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                     Democratizing global finance for the <span className="text-orange-500">modern era.</span>
                 </h1>
-                <p className="text-lg text-orange-200/70 leading-relaxed mb-10">
+                <p className="text-lg text-gray-500 leading-relaxed mb-10">
                     Founded in 2025, AimPay was born out of frustration with legacy banking systems that charge exorbitant fees, take days to clear, and lack basic transparency. We believe money should move as freely and instantly as information on the internet.
                 </p>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                     {stats.map((stat, i) => (
-                        <div key={i} className="bg-orange-950/30 border border-orange-900/50 rounded-2xl p-6">
-                            <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                            <div className="text-sm text-orange-300/70 uppercase tracking-widest">{stat.label}</div>
+                        <div key={i} className="bg-gray-100 border border-gray-200 rounded-2xl p-6">
+                            <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
+                            <div className="text-sm text-gray-600/70 uppercase tracking-widest">{stat.label}</div>
                         </div>
                     ))}
                 </div>
@@ -42,7 +42,7 @@ export function AboutUsPage() {
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="relative rounded-3xl overflow-hidden border border-orange-900/50"
+                    className="relative rounded-3xl overflow-hidden border border-gray-200"
                 >
                     <div className="absolute inset-0 bg-orange-500/10 mix-blend-overlay z-10" />
                     <ImageWithFallback
@@ -61,36 +61,36 @@ export function AboutUsPage() {
                     <h2 className="text-3xl font-bold text-white">Our Mission</h2>
 
                     <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-orange-900/40 flex items-center justify-center flex-shrink-0">
+                        <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
                             <Globe2 className="w-6 h-6 text-orange-400" />
                         </div>
                         <div>
                             <h3 className="text-xl font-semibold text-orange-100 mb-2">Borderless by default</h3>
-                            <p className="text-orange-200/60 leading-relaxed">
+                            <p className="text-gray-500 leading-relaxed">
                                 We're tearing down the geographical barriers of the financial world. Whether you're sending $10 to family or paying a $100k invoice to a vendor abroad, the experience should be identical.
                             </p>
                         </div>
                     </div>
 
                     <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-orange-900/40 flex items-center justify-center flex-shrink-0">
+                        <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
                             <HeartHandshake className="w-6 h-6 text-orange-400" />
                         </div>
                         <div>
                             <h3 className="text-xl font-semibold text-orange-100 mb-2">Radical transparency</h3>
-                            <p className="text-orange-200/60 leading-relaxed">
+                            <p className="text-gray-500 leading-relaxed">
                                 We make our money on a flat, clearly stated fee. We never hide markups in exchange rates, and we never will. Trust is earned through honesty.
                             </p>
                         </div>
                     </div>
 
                     <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-orange-900/40 flex items-center justify-center flex-shrink-0">
+                        <div className="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
                             <TrendingUp className="w-6 h-6 text-orange-400" />
                         </div>
                         <div>
                             <h3 className="text-xl font-semibold text-orange-100 mb-2">Constant innovation</h3>
-                            <p className="text-orange-200/60 leading-relaxed">
+                            <p className="text-gray-500 leading-relaxed">
                                 We reinvest heavily into our core engineering. Our routing algorithms get smarter every day, finding the fastest, cheapest path for your funds.
                             </p>
                         </div>

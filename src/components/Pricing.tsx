@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Check, X } from 'lucide-react';
+import { useNavigate } from 'react-router';
 
 const tiers = [
     {
@@ -54,61 +55,38 @@ const container = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
-        transition: {
-            staggerChildren: 0.2
-        }
+        transition: { staggerChildren: 0.2 }
     }
 };
 
 const item = {
     hidden: { opacity: 0, y: 50 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } }
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } }
 };
 
 export function Pricing() {
+    const navigate = useNavigate();
     return (
-        <section id="pricing" className="py-16 sm:py-24 lg:py-32 relative bg-[#3D0F00] z-20 overflow-hidden">
-            {/* Background decorations */}
-            <motion.div
-                className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-red-600/10 rounded-full blur-[120px] pointer-events-none"
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-            />
-            <motion.div
-                className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[120px] pointer-events-none"
-                animate={{
-                    scale: [1.2, 1, 1.2],
-                    opacity: [0.5, 0.3, 0.5],
-                }}
-                transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-            />
+        <section id="pricing" className="py-16 sm:py-24 lg:py-32 relative bg-gray-50 z-20 overflow-hidden">
+            {/* Static background decorations */}
+            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-orange-100 rounded-full blur-[120px] pointer-events-none opacity-40" />
+            <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gray-200 rounded-full blur-[120px] pointer-events-none opacity-40" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
                     className="text-center mb-20"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: '-100px' }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl lg:text-6xl text-white mb-6">
+                    <h2 className="text-3xl sm:text-4xl lg:text-6xl text-gray-900 mb-6">
                         Simple, Transparent{' '}
                         <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
                             Pricing
                         </span>
                     </h2>
-                    <p className="text-base sm:text-xl text-orange-200/70 max-w-3xl mx-auto">
+                    <p className="text-base sm:text-xl text-gray-500 max-w-3xl mx-auto">
                         Choose the perfect plan for your international transfer needs. No hidden fees, ever.
                     </p>
                 </motion.div>
@@ -118,34 +96,40 @@ export function Pricing() {
                     variants={container}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: '-100px' }}
                 >
                     {tiers.map((tier) => (
                         <motion.div
                             key={tier.name}
                             variants={item}
                             className={`relative rounded-3xl p-6 sm:p-8 lg:p-10 ${tier.highlight
-                                ? 'bg-gradient-to-b from-orange-900/40 to-[#1a0500] border-2 border-orange-500 shadow-2xl shadow-orange-900/50 lg:-mt-8 lg:mb-8'
-                                : 'bg-[#1a0500]/80 border border-orange-900/50 backdrop-blur-md'
+                                ? 'bg-gray-900 border-2 border-gray-900 shadow-2xl shadow-gray-400/30 lg:-mt-8 lg:mb-8'
+                                : 'bg-white border border-gray-200 shadow-sm'
                                 }`}
                         >
                             {tier.highlight && (
                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                    <span className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-bold uppercase tracking-wider py-1 px-4 rounded-full shadow-lg shadow-orange-500/30">
+                                    <span className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-bold uppercase tracking-wider py-1 px-4 rounded-full shadow-md">
                                         Most Popular
                                     </span>
                                 </div>
                             )}
 
                             <div className="mb-8">
-                                <h3 className="text-2xl font-semibold text-white mb-2">{tier.name}</h3>
-                                <p className="text-orange-200/60 h-12 leading-tight">{tier.description}</p>
+                                <h3 className={`text-2xl font-semibold mb-2 ${tier.highlight ? 'text-white' : 'text-gray-900'}`}>
+                                    {tier.name}
+                                </h3>
+                                <p className={`h-12 leading-tight ${tier.highlight ? 'text-gray-300' : 'text-gray-500'}`}>
+                                    {tier.description}
+                                </p>
                             </div>
 
-                            <div className="mb-8 flex items-baseline text-white">
+                            <div className={`mb-8 flex items-baseline ${tier.highlight ? 'text-white' : 'text-gray-900'}`}>
                                 <span className="text-5xl font-extrabold tracking-tight">{tier.price}</span>
                                 {tier.period && (
-                                    <span className="ml-1 text-xl font-medium text-orange-200/50">{tier.period}</span>
+                                    <span className={`ml-1 text-xl font-medium ${tier.highlight ? 'text-gray-300' : 'text-gray-400'}`}>
+                                        {tier.period}
+                                    </span>
                                 )}
                             </div>
 
@@ -154,12 +138,15 @@ export function Pricing() {
                                     <li key={feature.name} className="flex items-start">
                                         <div className="flex-shrink-0 mt-1">
                                             {feature.included ? (
-                                                <Check className={`w-5 h-5 ${tier.highlight ? 'text-orange-500' : 'text-orange-400'}`} />
+                                                <Check className={`w-5 h-5 ${tier.highlight ? 'text-orange-400' : 'text-orange-500'}`} />
                                             ) : (
-                                                <X className="w-5 h-5 text-orange-900/50" />
+                                                <X className={`w-5 h-5 ${tier.highlight ? 'text-gray-600' : 'text-gray-300'}`} />
                                             )}
                                         </div>
-                                        <p className={`ml-3 text-base ${feature.included ? 'text-orange-100/90' : 'text-orange-200/40'}`}>
+                                        <p className={`ml-3 text-base ${feature.included
+                                            ? tier.highlight ? 'text-gray-200' : 'text-gray-700'
+                                            : tier.highlight ? 'text-gray-600' : 'text-gray-400'
+                                            }`}>
                                             {feature.name}
                                         </p>
                                     </li>
@@ -167,9 +154,10 @@ export function Pricing() {
                             </ul>
 
                             <button
+                                onClick={() => navigate('/contact')}
                                 className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 ${tier.highlight
-                                    ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-500/40 hover:-translate-y-1'
-                                    : 'bg-orange-950/30 text-orange-200 border border-orange-800/50 hover:bg-orange-900/40 hover:text-white'
+                                    ? 'bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:shadow-lg hover:shadow-orange-300/40 hover:-translate-y-1'
+                                    : 'bg-gray-100 text-gray-800 border border-gray-200 hover:bg-gray-900 hover:text-white hover:border-gray-900'
                                     }`}
                             >
                                 {tier.cta}

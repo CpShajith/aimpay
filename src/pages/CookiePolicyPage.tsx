@@ -11,19 +11,19 @@ export function CookiePolicyPage() {
                 transition={{ duration: 0.8 }}
             >
                 <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-orange-900/40 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
                         <Cookie className="w-6 h-6 text-orange-500" />
                     </div>
                     <div>
                         <h1 className="text-3xl md:text-5xl font-bold text-white">Cookie Policy</h1>
-                        <p className="text-sm text-orange-200/50 mt-2">Effective Date: January 1, 2026</p>
+                        <p className="text-sm text-gray-500 mt-2">Effective Date: January 1, 2026</p>
                     </div>
                 </div>
             </motion.div>
 
-            <div className="space-y-12 text-orange-200/80 leading-relaxed">
+            <div className="space-y-12 text-gray-500 leading-relaxed">
                 <section>
-                    <h2 className="text-2xl font-bold text-white mb-6 border-b border-orange-900/50 pb-2">1. What are cookies?</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">1. What are cookies?</h2>
                     <p className="mb-4">
                         Cookies are small text files that are stored on your computer or mobile device when you visit a website.
                         They allow the website to recognize your device and remember if you have been to the website before. We use
@@ -33,7 +33,7 @@ export function CookiePolicyPage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-white mb-6 border-b border-orange-900/50 pb-2">2. How we use cookies</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">2. How we use cookies</h2>
                     <p className="mb-4">
                         AimPay uses cookies for the following purposes:
                     </p>
@@ -46,7 +46,7 @@ export function CookiePolicyPage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-white mb-6 border-b border-orange-900/50 pb-2">3. Managing cookies</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6 border-b border-gray-200 pb-2">3. Managing cookies</h2>
                     <p className="mb-4">
                         You can manage your cookie preferences through your browser settings. The 'Help' feature on most browsers will tell you
                         how to stop your browser from accepting new cookies, how to have the browser notify you when you receive a new cookie,

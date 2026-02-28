@@ -2,25 +2,25 @@
 
 :root {
   --font-size: 16px;
-  --background: #3D0F00;
-  --foreground: #ffffff;
-  --card: #200a00;
-  --card-foreground: #f5e6dc;
-  --popover: #200a00;
-  --popover-foreground: #f5e6dc;
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #f9f9f9;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
   --primary: #F73B20;
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.95 0.0058 264.53);
   --secondary-foreground: #030213;
   --muted: #ececf0;
   --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
+  --accent: #f3f4f6;
+  --accent-foreground: #111111;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+  --border: rgba(0, 0, 0, 0.08);
   --input: transparent;
-  --input-background: #f3f3f5;
+  --input-background: #f5f5f5;
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
@@ -31,13 +31,13 @@
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111111;
   --sidebar-primary: #030213;
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-accent: #f3f4f6;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: #e5e7eb;
   --sidebar-ring: oklch(0.708 0 0);
 }
 
@@ -132,7 +132,7 @@
 }
 
 /**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ * Base typography
  */
 @layer base {
   :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
@@ -195,62 +195,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #150300;
+  background: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #E65100, #BF360C);
+  background: linear-gradient(to bottom, #F73B20, #D93A1A);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #FF6D00, #E65100);
-}
-
-/* ============================================================
-   DEEP ORANGE DARK THEME — GLOBAL TEXT VISIBILITY OVERRIDES
-   These ensure every Tailwind gray/dark text class is readable
-   on the deep orange dark background without touching every file.
-   ============================================================ */
-
-/* Force all headings to be pure white */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #ffffff !important;
-}
-
-/* Body text — bright and readable */
-body,
-p,
-li,
-span:not([class*='text-orange']):not([class*='text-white']):not([class*='text-red']):not([class*='text-yellow']):not([class*='text-transparent']) {
-  color: #ffffff;
-}
-
-/* Override gray text utilities to be white on dark bg */
-.text-gray-900,
-.text-gray-800 {
-  color: #ffffff !important;
-}
-
-.text-gray-700 {
-  color: rgba(255, 230, 210, 0.95) !important;
-}
-
-.text-gray-600 {
-  color: rgba(255, 210, 185, 0.85) !important;
-}
-
-.text-gray-500 {
-  color: rgba(255, 190, 160, 0.75) !important;
-}
-
-.text-gray-400 {
-  color: rgba(255, 175, 140, 0.70) !important;
+  background: linear-gradient(to bottom, #FF5533, #F73B20);
 }
 
 /* Preserve transparent text (gradient clip text) */
@@ -258,14 +212,9 @@ span:not([class*='text-orange']):not([class*='text-white']):not([class*='text-re
   color: transparent !important;
 }
 
-/* Preserve explicitly white text */
+/* Preserve explicitly white text (inside dark sections) */
 .text-white {
   color: #ffffff !important;
-}
-
-/* Preserve orange text shades */
-.text-orange-700 {
-  color: rgba(255, 160, 80, 0.95) !important;
 }
 
 /* Gradient animation */
@@ -290,10 +239,10 @@ span:not([class*='text-orange']):not([class*='text-white']):not([class*='text-re
 
 /* Cursor glow effect */
 body {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="rgba(247, 59, 32, 0.2)" /><circle cx="10" cy="10" r="3" fill="rgba(247, 59, 32, 0.6)" /></svg>'), auto;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="rgba(247, 59, 32, 0.1)" /><circle cx="10" cy="10" r="3" fill="rgba(247, 59, 32, 0.5)" /></svg>'), auto;
 }
 
 button,
 a {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="rgba(247, 59, 32, 0.3)" /><circle cx="10" cy="10" r="3" fill="rgba(247, 59, 32, 0.8)" /></svg>'), pointer;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="rgba(247, 59, 32, 0.2)" /><circle cx="10" cy="10" r="3" fill="rgba(247, 59, 32, 0.7)" /></svg>'), pointer;
 }

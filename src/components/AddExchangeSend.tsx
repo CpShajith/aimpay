@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef, useState } from 'react';
 import { Plus, Repeat, Send, ArrowRight, CheckCircle2, DollarSign } from 'lucide-react';
+import { useNavigate } from 'react-router';
 
 const steps = [
   {
@@ -30,51 +31,18 @@ const steps = [
 ];
 
 export function AddExchangeSend() {
+  const navigate = useNavigate();
   const containerRef = useRef(null);
   const [activeStep, setActiveStep] = useState(0);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-
   return (
-    <section ref={containerRef} className="py-16 sm:py-24 lg:py-32 bg-[#1a0500] relative overflow-hidden">
-      {/* Animated background */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-orange-950/20 via-transparent to-orange-950/20"
-        style={{ y: backgroundY }}
-      />
+    <section ref={containerRef} className="py-16 sm:py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
+      {/* Static background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/30 via-transparent to-orange-50/30" />
 
-      {/* Floating orbs */}
-      <motion.div
-        className="absolute top-20 left-10 w-64 h-64 bg-orange-400/20 rounded-full blur-[100px]"
-        animate={{
-          x: [0, 100, 0],
-          y: [0, -50, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-10 w-80 h-80 bg-orange-300/20 rounded-full blur-[100px]"
-        animate={{
-          x: [0, -100, 0],
-          y: [0, 50, 0],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
+      {/* Static orbs */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-orange-100 rounded-full blur-[100px]" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-50 rounded-full blur-[100px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -85,20 +53,20 @@ export function AddExchangeSend() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-orange-900/40 border border-orange-700/50 text-orange-300 rounded-full mb-8"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-orange-50 border border-orange-200 text-orange-600 rounded-full mb-8"
             whileHover={{ scale: 1.05 }}
           >
             <DollarSign className="w-4 h-4" />
-            <span className="text-sm">Simple. Fast. Secure.</span>
+            <span className="text-sm font-medium">Simple. Fast. Secure.</span>
           </motion.div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl text-gray-900 font-bold mb-6">
             Send Money in{' '}
-            <span className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
               Three Steps
             </span>
           </h2>
-          <p className="text-base sm:text-xl text-orange-200/70 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-500 max-w-3xl mx-auto">
             Our streamlined process makes international transfers as easy as sending a text message
           </p>
         </motion.div>
@@ -116,7 +84,7 @@ export function AddExchangeSend() {
               onViewportEnter={() => setActiveStep(index)}
             >
               <motion.div
-                className="relative bg-[#200a00]/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border-2 border-orange-800/40 hover:border-orange-500/60 transition-all duration-300 h-full overflow-hidden group cursor-pointer shadow-lg shadow-orange-950/50"
+                className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 border-2 border-gray-200 hover:border-orange-400 transition-all duration-300 h-full overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50"
                 whileHover={{
                   y: -10,
                   scale: 1.03,
@@ -158,10 +126,10 @@ export function AddExchangeSend() {
                   <step.icon className="w-10 h-10 text-white" />
                 </motion.div>
 
-                <h3 className="text-2xl sm:text-3xl text-white mb-3 relative z-10">
+                <h3 className="text-2xl sm:text-3xl text-gray-900 font-semibold mb-3 relative z-10">
                   {step.title}
                 </h3>
-                <p className="text-orange-200/70 mb-6 relative z-10 text-lg">
+                <p className="text-gray-500 mb-6 relative z-10 text-lg">
                   {step.description}
                 </p>
 
@@ -170,7 +138,7 @@ export function AddExchangeSend() {
                   {step.details.map((detail, i) => (
                     <motion.li
                       key={i}
-                      className="flex items-center gap-2 text-orange-100/80"
+                      className="flex items-center gap-2 text-gray-600"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -182,46 +150,15 @@ export function AddExchangeSend() {
                   ))}
                 </ul>
 
-                {/* Animated pulse ring */}
-                {activeStep === index && (
-                  <motion.div
-                    className="absolute inset-0 border-2 border-orange-500 rounded-3xl"
-                    initial={{ opacity: 0.5, scale: 1 }}
-                    animate={{
-                      opacity: 0,
-                      scale: 1.05,
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                      ease: "easeOut"
-                    }}
-                  />
-                )}
+                {/* Pulse ring — removed for performance */}
 
                 {/* Arrow connector for desktop */}
                 {index < steps.length - 1 && (
-                  <motion.div
-                    className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.2 + 0.8 }}
-                  >
-                    <motion.div
-                      animate={{
-                        x: [0, 10, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      <ArrowRight className="w-8 h-8 text-orange-500" />
-                    </motion.div>
-                  </motion.div>
+                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-20">
+                    <ArrowRight className="w-8 h-8 text-orange-400" />
+                  </div>
                 )}
+
               </motion.div>
             </motion.div>
           ))}
@@ -237,6 +174,7 @@ export function AddExchangeSend() {
         >
           <motion.button
             className="px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg sm:text-xl rounded-xl inline-flex items-center justify-center gap-3 relative overflow-hidden group shadow-xl shadow-orange-500/40 w-full sm:w-auto"
+            onClick={() => navigate('/contact')}
             whileHover={{
               scale: 1.05,
               boxShadow: "0 30px 60px rgba(247, 59, 32, 0.5)"
@@ -244,18 +182,7 @@ export function AddExchangeSend() {
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Try AimPay Now</span>
-            <motion.div
-              animate={{
-                x: [0, 5, 0]
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <ArrowRight className="w-6 h-6 relative z-10" />
-            </motion.div>
+            <ArrowRight className="w-6 h-6 relative z-10 group-hover:translate-x-1 transition-transform" />
 
             {/* Animated gradient overlay */}
             <motion.div
@@ -265,21 +192,11 @@ export function AddExchangeSend() {
               transition={{ duration: 0.3 }}
             />
 
-            {/* Shine effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
-              initial={{ x: "-100%" }}
-              animate={{ x: "200%" }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatDelay: 0.5
-              }}
-            />
+
           </motion.button>
 
           <motion.p
-            className="mt-6 text-orange-200/60"
+            className="mt-6 text-gray-400"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

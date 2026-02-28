@@ -1,6 +1,6 @@
 import { Footer } from './components/Footer';
 import { Navigation } from './components/Navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { SignIn } from './pages/SignIn';
 import { ContactForm } from './pages/ContactForm';
 import { HomePage } from './pages/HomePage';
@@ -29,18 +29,8 @@ import { AnimatePresence } from 'motion/react';
 import './styles/globals.css';
 
 export default function App() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   // Scroll to top on route change
   useEffect(() => {
@@ -48,13 +38,11 @@ export default function App() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen overflow-hidden" style={{ background: '#3D0F00' }}>
-      {/* Animated gradient follow */}
+    <div className="min-h-screen overflow-hidden" style={{ background: '#ffffff' }}>
+      {/* Static top-right decorative glow */}
       <div
-        className="fixed inset-0 opacity-30 pointer-events-none z-0"
-        style={{
-          background: `radial-gradient(circle 800px at ${mousePosition.x}px ${mousePosition.y}px, rgba(230, 81, 0, 0.15), transparent)`,
-        }}
+        className="fixed top-0 right-0 w-[600px] h-[600px] opacity-20 pointer-events-none z-0"
+        style={{ background: 'radial-gradient(circle, rgba(247,59,32,0.12) 0%, transparent 70%)' }}
       />
 
 
