@@ -2,6 +2,7 @@ import { Footer } from './components/Footer';
 import { Navigation } from './components/Navigation';
 import { useEffect } from 'react';
 import { SignIn } from './pages/SignIn';
+import { SignUp } from './pages/SignUp';
 import { ContactForm } from './pages/ContactForm';
 import { HomePage } from './pages/HomePage';
 import Home from './pages/Home';
@@ -56,7 +57,7 @@ export default function App() {
         )}
 
         <div className="relative z-10 flex flex-col min-h-screen">
-          {!isAdminRoute && !['/signin'].includes(location.pathname) && (
+          {!isAdminRoute && !['/signin', '/signup'].includes(location.pathname) && (
             <Navigation
               onSignInClick={() => navigate('/signin')}
               onGetStartedClick={() => navigate('/contact')}
@@ -68,7 +69,8 @@ export default function App() {
               {/* Main routes */}
               <Route path="/" element={<HomePage />} />
               <Route path="/home" element={<Home />} />
-              <Route path="/signin" element={<SignIn onBack={() => navigate('/')} onGetStarted={() => navigate('/contact')} />} />
+              <Route path="/signin" element={<SignIn onBack={() => navigate('/')} onGetStarted={() => navigate('/signup')} />} />
+              <Route path="/signup" element={<SignUp onBack={() => navigate('/')} onSignIn={() => navigate('/signin')} />} />
               <Route path="/contact-form" element={<ContactForm onBack={() => navigate('/')} />} />
 
               {/* Product */}
@@ -99,7 +101,7 @@ export default function App() {
             </Routes>
           </main>
 
-          {!isAdminRoute && !['/signin', '/contact'].includes(location.pathname) && <Footer />}
+          {!isAdminRoute && !['/signin', '/signup', '/contact'].includes(location.pathname) && <Footer />}
         </div>
       </div>
     </AuthProvider>
