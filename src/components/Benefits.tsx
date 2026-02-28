@@ -67,7 +67,7 @@ export function Benefits() {
             <motion.div
               className="relative group"
               style={{ scale: imageScale }}
-              whileHover={{ scale: 1.05, rotateY: 10, rotateX: -5 }}
+              whileHover={{ scale: 1.05, y: -10 }}
               transition={{ duration: 0.4 }}
             >
               {/* Border glow */}

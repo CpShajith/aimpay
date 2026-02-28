@@ -95,7 +95,6 @@ export function HowItWorks() {
                   scale: 1.05,
                   boxShadow: '0 30px 60px rgba(0,0,0,0.08)'
                 }}
-                style={{ transformStyle: 'preserve-3d' }}
               >
                 {/* Hover gradient */}
                 <motion.div

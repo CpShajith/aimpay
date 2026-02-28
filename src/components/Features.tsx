@@ -52,11 +52,10 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 60, rotateX: -30 },
+  hidden: { opacity: 0, y: 60 },
   show: {
     opacity: 1,
     y: 0,
-    rotateX: 0,
     transition: {
       duration: 0.8,
       ease: [0.25, 0.1, 0.25, 1] as any
@@ -113,7 +112,6 @@ export function Features() {
                   y: -10,
                   scale: 1.02,
                 }}
-                style={{ transformStyle: 'preserve-3d' }}
               >
                 {/* Gradient overlay on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 z-0`} />
