@@ -65,10 +65,10 @@ function Card({ card, index }: any) {
         zIndex: index + 10,
       }}
       className="mb-8"
-      initial={{ opacity: 0, scale: 0.9, y: 50 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+      transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
     >
       <motion.div
         className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden relative group"
@@ -82,7 +82,7 @@ function Card({ card, index }: any) {
 
         {/* Glowing orb on hover */}
         <motion.div
-          className={`absolute -top-20 -right-20 w-60 h-60 bg-gradient-to-br ${card.gradient} rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+          className={`hidden md:block absolute -top-20 -right-20 w-60 h-60 bg-gradient-to-br ${card.gradient} rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
         />
 
         <div className="relative z-10">
@@ -114,7 +114,7 @@ function Card({ card, index }: any) {
 
           {/* Animated bottom line */}
           <motion.div
-            className={`mt-8 h-1 bg-gradient-to-r ${card.gradient} rounded-full w-0 group-hover:w-full transition-all duration-700`}
+            className={`mt-8 h-1 bg-gradient-to-r ${card.gradient} rounded-full w-full origin-left opacity-0 group-hover:opacity-100 scale-x-0 group-hover:scale-x-100 transition-all duration-700`}
           />
         </div>
       </motion.div>

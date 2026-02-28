@@ -59,7 +59,7 @@ export function Benefits() {
             <div className="hidden md:block absolute -bottom-10 -right-10 w-40 h-40 bg-gray-100 rounded-full blur-2xl opacity-60" />
 
             <motion.div
-              className="relative group origin-center"
+              className="relative group origin-center will-change-transform"
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true, margin: '-100px' }}

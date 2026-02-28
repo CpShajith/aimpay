@@ -129,7 +129,7 @@ export function HowItWorks() {
 
                 {/* Glowing orb */}
                 <motion.div
-                  className={`absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br ${step.color} rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
+                  className={`hidden md:block absolute -bottom-10 -right-10 w-40 h-40 bg-gradient-to-br ${step.color} rounded-full blur-3xl opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
                 />
               </motion.div>
 

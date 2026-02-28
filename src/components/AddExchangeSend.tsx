@@ -84,7 +84,7 @@ export function AddExchangeSend() {
               onViewportEnter={() => setActiveStep(index)}
             >
               <motion.div
-                className="relative bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-3xl p-6 sm:p-8 border-2 border-gray-200 hover:border-orange-400 transition-all duration-300 h-full overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50"
+                className="relative bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-3xl p-6 sm:p-8 border-2 border-gray-200 hover:border-orange-400 transition-all duration-300 h-full overflow-hidden group cursor-pointer shadow-sm md:shadow-lg md:shadow-gray-200/50"
                 whileHover={{
                   y: -10,
                   scale: 1.03
@@ -171,7 +171,7 @@ export function AddExchangeSend() {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <motion.button
-            className="px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg sm:text-xl rounded-xl inline-flex items-center justify-center gap-3 relative overflow-hidden group shadow-xl shadow-orange-500/40 w-full sm:w-auto"
+            className="px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg sm:text-xl rounded-xl inline-flex items-center justify-center gap-3 relative overflow-hidden group shadow-md md:shadow-xl md:shadow-orange-500/40 w-full sm:w-auto"
             onClick={() => navigate('/contact')}
             whileHover={{
               scale: 1.05
