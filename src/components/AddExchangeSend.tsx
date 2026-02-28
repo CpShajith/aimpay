@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion } from 'motion/react';
 import { useRef, useState } from 'react';
 import { Plus, Repeat, Send, ArrowRight, CheckCircle2, DollarSign } from 'lucide-react';
 import { useNavigate } from 'react-router';
@@ -87,12 +87,10 @@ export function AddExchangeSend() {
                 className="relative bg-white/80 backdrop-blur-none md:backdrop-blur-sm rounded-3xl p-6 sm:p-8 border-2 border-gray-200 hover:border-orange-400 transition-all duration-300 h-full overflow-hidden group cursor-pointer shadow-lg shadow-gray-200/50"
                 whileHover={{
                   y: -10,
-                  scale: 1.03,
-                  boxShadow: "0 25px 50px rgba(247, 59, 32, 0.25)"
+                  scale: 1.03
                 }}
                 animate={activeStep === index ? {
-                  borderColor: 'rgba(247, 59, 32, 0.6)',
-                  boxShadow: "0 25px 50px rgba(247, 59, 32, 0.3)"
+                  borderColor: 'rgba(247, 59, 32, 0.6)'
                 } : {}}
               >
                 {/* Animated background */}
@@ -176,8 +174,7 @@ export function AddExchangeSend() {
             className="px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-lg sm:text-xl rounded-xl inline-flex items-center justify-center gap-3 relative overflow-hidden group shadow-xl shadow-orange-500/40 w-full sm:w-auto"
             onClick={() => navigate('/contact')}
             whileHover={{
-              scale: 1.05,
-              boxShadow: "0 30px 60px rgba(247, 59, 32, 0.5)"
+              scale: 1.05
             }}
             whileTap={{ scale: 0.95 }}
           >

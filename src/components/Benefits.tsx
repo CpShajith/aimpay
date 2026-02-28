@@ -1,6 +1,6 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Check } from 'lucide-react';
-import { motion, useScroll, useTransform, type Variants } from 'motion/react';
+import { motion, type Variants } from 'motion/react';
 import { useRef } from 'react';
 
 const benefits = [
@@ -37,12 +37,6 @@ const item: Variants = {
 
 export function Benefits() {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start']
-  });
-
-  const imageScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
 
   return (
     <section id="benefits" ref={ref} className="scroll-mt-24 py-16 sm:py-24 lg:py-32 bg-gray-50 relative overflow-hidden">
@@ -65,10 +59,12 @@ export function Benefits() {
             <div className="hidden md:block absolute -bottom-10 -right-10 w-40 h-40 bg-gray-100 rounded-full blur-2xl opacity-60" />
 
             <motion.div
-              className="relative group"
-              style={{ scale: imageScale }}
+              className="relative group origin-center"
+              initial={{ scale: 0.8 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true, margin: '-100px' }}
               whileHover={{ scale: 1.05, y: -10 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
               {/* Border glow */}
               <div className="hidden md:block absolute inset-0 bg-gradient-to-br from-orange-400 to-gray-300 rounded-3xl opacity-20 group-hover:opacity-40 transition-opacity blur-xl" />

@@ -17,24 +17,28 @@ const variants: Record<Position, any> = {
     scale: 1,
     opacity: 1,
     zIndex: 30,
+    display: "block",
   },
   left: {
     x: "-100%",
     scale: 0.9,
     opacity: 0,
     zIndex: 20,
+    transitionEnd: { display: "none" },
   },
   right: {
     x: "100%",
     scale: 0.9,
     opacity: 0,
     zIndex: 20,
+    transitionEnd: { display: "none" },
   },
   hidden: {
     x: 0,
     scale: 0.8,
     opacity: 0,
     zIndex: 10,
+    transitionEnd: { display: "none" },
   },
 };
 
