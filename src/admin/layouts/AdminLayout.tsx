@@ -5,6 +5,7 @@ import {
     LayoutDashboard,
     Users,
     CreditCard,
+    MessageSquare,
     Settings,
     LogOut,
     Menu,
@@ -15,6 +16,7 @@ const sidebarLinks = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
     { icon: Users, label: 'Users', path: '/admin/users' },
     { icon: CreditCard, label: 'Transactions', path: '/admin/transactions' },
+    { icon: MessageSquare, label: 'Messages', path: '/admin/messages' },
     { icon: Settings, label: 'Settings', path: '/admin/settings' },
 ];
 
@@ -67,8 +69,8 @@ export function AdminLayout() {
                                 key={link.label}
                                 onClick={() => navigate(link.path)}
                                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${isActive
-                                        ? 'bg-orange-50 text-orange-600 font-medium'
-                                        : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
+                                    ? 'bg-orange-50 text-orange-600 font-medium'
+                                    : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
                                     }`}
                             >
                                 <Icon className={`w-5 h-5 ${isActive ? 'text-orange-500' : ''}`} />

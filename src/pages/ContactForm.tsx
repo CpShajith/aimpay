@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Send, User, Mail, Phone, MessageSquare, CheckCircle, Sparkles } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface ContactFormProps {
     onBack: () => void;
@@ -9,6 +10,7 @@ interface ContactFormProps {
 export function ContactForm({ onBack }: ContactFormProps) {
     const [submitted, setSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -21,13 +23,36 @@ export function ContactForm({ onBack }: ContactFormProps) {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
-        setTimeout(() => {
-            setIsLoading(false);
+        setSubmitError(null);
+
+        try {
+            const { error } = await supabase
+                .from('contact_messages')
+                .insert([
+                    {
+                        name: form.name,
+                        email: form.email,
+                        phone: form.phone || null,
+                        subject: form.subject,
+                        message: form.message,
+                        status: 'unread'
+                    }
+                ]);
+
+            if (error) {
+                console.error('Supabase insert error:', error);
+                throw new Error(error.message || 'Failed to send message.');
+            }
+
             setSubmitted(true);
-        }, 2000);
+        } catch (err: any) {
+            setSubmitError(err.message || 'An unexpected error occurred. Please try again.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     if (submitted) {
@@ -150,6 +175,14 @@ export function ContactForm({ onBack }: ContactFormProps) {
                         <div className="absolute -inset-0.5 bg-gradient-to-br from-orange-500/40 via-orange-600/20 to-red-600/40 rounded-3xl blur-md opacity-70" />
 
                         <div className="relative bg-white/80 backdrop-blur-none md:backdrop-blur-xl border border-gray-300 rounded-3xl p-8 shadow-2xl">
+                            {submitError && (
+                                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm flex items-center gap-3">
+                                    <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>{submitError}</span>
+                                </div>
+                            )}
                             <form onSubmit={handleSubmit} className="space-y-6">
 
                                 {/* Name + Email row */}

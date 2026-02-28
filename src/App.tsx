@@ -31,6 +31,7 @@ import { AdminLayout } from './admin/layouts/AdminLayout';
 import { AdminDashboard } from './admin/pages/AdminDashboard';
 import { AdminUsers } from './admin/pages/AdminUsers';
 import { AdminTransactions } from './admin/pages/AdminTransactions';
+import { AdminMessages } from './admin/pages/AdminMessages';
 
 import { Routes, Route, useNavigate, useLocation } from 'react-router';
 import './styles/globals.css';
@@ -96,6 +97,7 @@ export default function App() {
                 <Route index element={<AdminDashboard />} />
                 <Route path="users" element={<AdminUsers />} />
                 <Route path="transactions" element={<AdminTransactions />} />
+                <Route path="messages" element={<AdminMessages />} />
                 <Route path="settings" element={<div className="p-8 text-gray-500 text-center border-2 border-dashed border-gray-200 rounded-2xl mx-auto max-w-lg mt-10">Settings placeholder</div>} />
               </Route>
             </Routes>
